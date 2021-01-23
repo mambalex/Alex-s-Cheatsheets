@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState } from "react"
 import { graphql, Link } from "gatsby"
 import { v4 as uuidv4 } from "uuid"
 
@@ -6,12 +6,10 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const applyCustomRules = html => {
+  const regex = new RegExp("</div>\n<p>See: <a", "g")
   return html
-    .replaceAll(
-      "</div>\n<p>See: <a",
-      "<p class='reference'>See: <a target='_blank'"
-    )
-    .replaceAll("</a></p>", "</a></p></div>")
+    .replace(regex, "<p class='reference'>See: <a target='_blank'")
+    .replace(/<\/a><\/p>/g, "</a></p></div>")
 }
 
 export default function Template({ data, location }) {
@@ -22,6 +20,7 @@ export default function Template({ data, location }) {
   const onClickSidebar = hash => {
     setHash(hash)
   }
+  console.log(html)
 
   return (
     <Layout>
@@ -43,23 +42,17 @@ export default function Template({ data, location }) {
                 <li
                   key={uuidv4()}
                   className={
-                    hash ===
-                    el.value.toString().toLowerCase().replaceAll(" ", "-")
+                    hash === el.value.toLowerCase().replace(/ /g, "-")
                       ? "active"
                       : ""
                   }
                 >
                   <Link
-                    to={`${
-                      location.pathname
-                    }#${el.value
-                      .toString()
+                    to={`${location.pathname}#${el.value
                       .toLowerCase()
-                      .replaceAll(" ", "-")}`}
+                      .replace(" ", "-")}`}
                     onClick={() =>
-                      onClickSidebar(
-                        el.value.toString().toLowerCase().replaceAll(" ", "-")
-                      )
+                      onClickSidebar(el.value.toLowerCase().replace(/ /g, "-"))
                     }
                   >
                     {el.value}
