@@ -43,7 +43,8 @@ export default function Template({ data, location }) {
                 <li
                   key={uuidv4()}
                   className={
-                    hash === el.value.toLowerCase().replaceAll(" ", "-")
+                    hash ===
+                    el.value.toString().toLowerCase().replaceAll(" ", "-")
                       ? "active"
                       : ""
                   }
@@ -51,10 +52,13 @@ export default function Template({ data, location }) {
                   <Link
                     to={`${
                       location.pathname
-                    }#${el.value.toLowerCase().replaceAll(" ", "-")}`}
+                    }#${el.value
+                      .toString()
+                      .toLowerCase()
+                      .replaceAll(" ", "-")}`}
                     onClick={() =>
                       onClickSidebar(
-                        el.value.toLowerCase().replaceAll(" ", "-")
+                        el.value.toString().toLowerCase().replaceAll(" ", "-")
                       )
                     }
                   >
