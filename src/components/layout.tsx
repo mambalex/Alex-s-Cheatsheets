@@ -10,7 +10,11 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -36,12 +40,17 @@ const Layout = ({ children }) => {
         <main>{children}</main>
         <footer
           style={{
-            marginTop: `2rem`,
+            margin: `5rem auto 0`,
+            textAlign: "center",
+            fontSize: "14px",
           }}
         >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <span>
+            {" "}
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            ❤️ by Alex Zhang
+          </span>
         </footer>
       </div>
     </>

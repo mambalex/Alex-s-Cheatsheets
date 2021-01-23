@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="3px" height="6px" viewBox="0 0 3 6" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>triangle</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Navigation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.300000012">
+        <g id="03---Resources" transform="translate(-758.000000, -193.000000)" fill="#000000" fill-rule="nonzero">
+            <g id="Products-_-active" transform="translate(471.000000, 41.000000)">
+                <g id="Chat" transform="translate(260.000000, 40.000000)">
+                    <g id="toggle-tree-closed" transform="translate(9.000000, 108.000000)">
+                        <g id="Nav-/-Main-/-Link-Drop-Down-collapse" transform="translate(18.000000, 1.000000)">
+                            <g id="Nav-/-Main-/-Link">
+                                <polygon id="triangle" transform="translate(1.601562, 5.613770) rotate(-90.000000) translate(-1.601562, -5.613770) " points="-1 4.31298828 4.203125 4.31298828 1.6015625 6.91455078"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
