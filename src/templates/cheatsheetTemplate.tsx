@@ -38,6 +38,13 @@ export default function Template({ data, location }) {
     setHash(hash)
   }
 
+  const headerToHash = (header: string): string =>
+    header.toLowerCase().replace("&", "").replace(/ /g, "-")
+
+  const backToTop = () => {
+    window[`scrollTo`]({ top: 0, behavior: `smooth` })
+  }
+
   return (
     <Layout>
       <SEO title={frontmatter.title} />
@@ -54,14 +61,12 @@ export default function Template({ data, location }) {
           <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path>
         </svg>
       </Link>
-      <h1
-        style={{
-          fontFamily: "Realtime-semibold",
-          fontWeight: "lighter",
-        }}
+      <div
+        className={`title title${(frontmatter.order % 3) + 1}`}
+        onClick={backToTop}
       >
         {frontmatter.title}
-      </h1>
+      </div>
       <div className="container">
         <div className="sidebar">
           <div className="wrapper">
@@ -69,19 +74,11 @@ export default function Template({ data, location }) {
               {headings.map(el => (
                 <li
                   key={uuidv4()}
-                  className={
-                    hash === el.value.toLowerCase().replace(/ /g, "-")
-                      ? "active"
-                      : ""
-                  }
+                  className={hash === headerToHash(el.value) ? "active" : ""}
                 >
                   <Link
-                    to={`${location.pathname}#${el.value
-                      .toLowerCase()
-                      .replace(" ", "-")}`}
-                    onClick={() =>
-                      onClickSidebar(el.value.toLowerCase().replace(/ /g, "-"))
-                    }
+                    to={`${location.pathname}#${headerToHash(el.value)}`}
+                    onClick={() => onClickSidebar(headerToHash(el.value))}
                   >
                     {el.value}
                   </Link>
@@ -94,6 +91,7 @@ export default function Template({ data, location }) {
           <div dangerouslySetInnerHTML={{ __html: applyCustomRules(html) }} />
         </div>
       </div>
+      <button className="to-top show" onClick={backToTop} />
     </Layout>
   )
 }
@@ -108,6 +106,7 @@ export const templateQuery = graphql`
       frontmatter {
         slug
         title
+        order
       }
     }
   }

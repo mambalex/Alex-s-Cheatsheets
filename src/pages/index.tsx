@@ -7,19 +7,22 @@ import "../styles/index.scss"
 const IndexPage = ({ data }) => {
   const { allMarkdownRemark } = data
   const { edges } = allMarkdownRemark
+
   return (
     <div className="home-container">
       <SEO title="Home" />
       <section className="glass">
         <h1>Alex's Cheat Sheets</h1>
         <div>
-          {edges.map((edge, index) => (
-            <Link to={edge.node.frontmatter.slug} key={uuidv4()}>
-              <div className={`card card${(index % 3) + 1}`}>
-                {edge.node.frontmatter.title}
-              </div>
-            </Link>
-          ))}
+          {edges
+            .sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)
+            .map((edge, index) => (
+              <Link to={edge.node.frontmatter.slug} key={uuidv4()}>
+                <div className={`card card${(index % 3) + 1}`}>
+                  {edge.node.frontmatter.title}
+                </div>
+              </Link>
+            ))}
         </div>
       </section>
 

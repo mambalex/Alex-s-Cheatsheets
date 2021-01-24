@@ -1,6 +1,7 @@
 .home-container {
   min-height: 100vh;
   background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  // background: linear-gradient(to right top, #65dfc9, #caf7fe);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,11 +35,12 @@
     text-align: center;
   }
   > div {
-    min-width: 375px;
+    // min-width: 375px;
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 }
 
@@ -49,11 +51,11 @@
   border-radius: 8px;
   min-width: 100px;
   padding: 0 20px;
-  margin-top: 30px;
   height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 30px 10px 0;
 }
 
 .card1 {
@@ -62,6 +64,13 @@
     rgb(114, 137, 221),
     rgb(180, 154, 246)
   );
+  &:hover {
+    background: linear-gradient(
+      to right bottom,
+      rgb(93, 114, 187),
+      rgb(167, 139, 236)
+    );
+  }
 }
 
 .card2 {
@@ -70,6 +79,13 @@
     rgb(239, 135, 150),
     rgb(244, 186, 142)
   );
+  &:hover {
+    background: linear-gradient(
+      to right bottom,
+      rgb(231, 103, 122),
+      rgb(241, 176, 126)
+    );
+  }
 }
 
 .card3 {
@@ -78,6 +94,17 @@
     rgb(98, 138, 239),
     rgb(122, 198, 226)
   );
+  &:hover {
+    background: linear-gradient(
+      to right bottom,
+      rgb(91, 128, 223),
+      rgb(116, 175, 197)
+    );
+  }
+}
+
+.card4 {
+  background: linear-gradient(to right bottom, #14af83, #32e0c0);
 }
 
 .circle1,
