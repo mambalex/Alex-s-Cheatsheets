@@ -23,127 +23,13 @@ body {
   font-family: Realtime-semibold;
 }
 
-.code-block {
-  box-shadow: 0 6px 8px rgba(85, 102, 119, 0.03),
-    0 1px 1px rgba(85, 102, 119, 0.4);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.reference {
-  font-size: 14px;
-  border-top: solid 1px rgba(96, 106, 116, 0.18);
-  color: #345;
-  background-color: #f8f9fa;
-  padding: 0.6em 1em 0.9em;
-  box-shadow: 0 6px 8px rgba(85, 102, 119, 0.03),
-    0 1px 1px rgba(85, 102, 119, 0.4);
-  margin-top: -10px;
-  font-weight: 500;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-  a {
-    color: #345;
-    text-decoration: none;
-    border-bottom: solid 1px rgba(85, 102, 119, 0.18);
-    padding-bottom: 2px;
-  }
-}
-
-.container {
-  display: flex;
-
-  .content {
-    padding: 0 0 0 30px;
-    flex: 1;
-    // margin-top: -10px;
-    h2,
-    h3 {
-      font-weight: lighter;
-      //   font-family: Realtime;
-    }
-    h2 {
-      width: 100%;
-      margin-top: 50px;
-      //   color: #cceecc;
-    }
-  }
-  .sidebar {
-    width: 180px;
-    border-right: 1px solid rgba(0, 0, 0, 0.04);
-    padding-right: 15px;
-    padding-top: 40px;
-    position: relative;
-    @media screen and (max-width: 778px) {
-      display: none;
-    }
-    .wrapper {
-      position: fixed;
-      top: 190px;
-    }
-    ul {
-      list-style: none;
-      font-size: 16px;
-      //   line-height: 10px;
-      font-weight: 400;
-      //   font-family: Realtime-bold;
-      position: relative;
-      padding: 0;
-      margin: 0;
-      li {
-        position: relative;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        // padding: 6px 6px 6px 0px;
-        a {
-          padding: 6px 6px 6px 0px;
-          color: rgba(0, 0, 0, 0.6);
-          text-decoration: none;
-          margin-left: 6px;
-          width: 100%;
-        }
-        &.active {
-          font-family: Realtime-bold;
-          &::before {
-            content: "";
-            position: absolute;
-            display: block;
-            left: -10px;
-            width: 3px;
-            height: 6px;
-            background: url(../images/triangle.svg) center left no-repeat;
-            transform-origin: center;
-          }
-          a {
-            color: #000;
-          }
-        }
-        &:hover {
-          border-radius: 4px;
-          background-color: rgba(0, 0, 0, 0.04);
-        }
-        //     &::before {
-        //       content: "";
-        //       position: absolute;
-        //       display: block;
-        //       left: 8px;
-        //       width: 3px;
-        //       height: 6px;
-        //       background: url(https://getstream.imgix.net/images/docs/triangle.svg)
-        //         center left no-repeat;
-        //       transform-origin: center;
-        //     }
-      }
-    }
-  }
-}
-
-.gatsby-highlight {
-}
-
-.col-2 {
-  display: flex;
-  justify-content: space-between;
-  > div {
-    width: 48%;
-  }
+a {
+  text-decoration: none;
+  color: white;
 }

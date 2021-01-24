@@ -1,17 +1,13 @@
 ---
 title: Bash
 slug: "/bash"
-date: "2020-05-17T22:40:32.169Z"
+order: 1
 description: Testing out custom syntax highlighting options
-toc:
-  - strict-mode
-  - special-parameters
-  -
 ---
 
 ## Strict mode
 
-<div class='col-2'>
+{col-2/2}
 
 ```bash
 #/bin/bash
@@ -27,26 +23,22 @@ See: [Bash strict mode](https://delightlylinux.wordpress.com/2020/02/16/bash-ifs
 IFS=$'\n\t'
 ```
 
-</div>
-
 ## Special parameters
 
-<div class='col-2'>
+{col-1/2}
 
 ```bash
 name="John"
 echo $x
 echo $0    # ./a.sh
 echo $1	   # Arg1
-echo $@    # A array of all args
+echo $@    # An array of all args
 echo $#    # Number of args
 echo $?    # Exit status
 echo $$    # PID of shell
 ```
 
 See: [Special Parameters](https://www.gnu.org/software/bash/manual/html_node/Special-Parameters.html)
-
-</div>
 
 ## Strings
 
@@ -147,12 +139,10 @@ done
 
 ## Read
 
-<div class='col-2'>
+{col-1/2}
 
 ```bash
 echo -n "What is your name?"
 read name
 echo $name
 ```
-
-</div>

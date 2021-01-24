@@ -1,21 +1,48 @@
 import React from "react"
-import { Link } from "gatsby"
-
-import Layout from "../components/layout"
-import Image from "../components/image"
+import { v4 as uuidv4 } from "uuid"
+import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
+import "../styles/index.scss"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to my new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+const IndexPage = ({ data }) => {
+  const { allMarkdownRemark } = data
+  const { edges } = allMarkdownRemark
+  return (
+    <div className="home-container">
+      <SEO title="Home" />
+      <section className="glass">
+        <h1>Alex's Cheat Sheets</h1>
+        <div>
+          {edges.map((edge, index) => (
+            <Link to={edge.node.frontmatter.slug} key={uuidv4()}>
+              <div className={`card card${(index % 3) + 1}`}>
+                {edge.node.frontmatter.title}
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <div className="circle1" />
+      <div className="circle2" />
     </div>
-    <Link to="/bash">Go to Bash</Link> <br />
-  </Layout>
-)
+  )
+}
+
+export const pageQuery = graphql`
+  query pageQuery {
+    allMarkdownRemark(filter: { html: {} }) {
+      edges {
+        node {
+          frontmatter {
+            slug
+            title
+            order
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
