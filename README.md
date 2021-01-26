@@ -24,4 +24,4 @@ Please place the markdown files in the `markdown-pages` folder, it will generate
 
 ## CI/CD Pipeline 🚀
 
-An changes in the main branch will trigger Netlify pipeline to deploy the app
+Any changes in the main branch will trigger Netlify pipeline to deploy the app
