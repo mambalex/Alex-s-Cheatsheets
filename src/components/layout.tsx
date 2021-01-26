@@ -11,10 +11,10 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line global-require
-  require("smooth-scroll")('a[href*="#"]')
-}
+// if (typeof window !== "undefined") {
+//   // eslint-disable-next-line global-require
+//   require("smooth-scroll")('a[href*="#"]')
+// }
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`

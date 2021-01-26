@@ -1,7 +1,7 @@
 ---
 title: Terraform
 slug: "/terraform"
-order: 5
+order: 6
 description: Terraform cheatsheet
 ---
 

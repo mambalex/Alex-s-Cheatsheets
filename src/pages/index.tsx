@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
             .sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)
             .map((edge, index) => (
               <Link to={edge.node.frontmatter.slug} key={uuidv4()}>
-                <div className={`card card${(index % 3) + 1}`}>
+                <div className={`card card${(index % 3) + 1} `}>
                   {edge.node.frontmatter.title}
                 </div>
               </Link>

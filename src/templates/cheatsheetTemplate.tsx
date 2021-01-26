@@ -62,7 +62,7 @@ export default function Template({ data, location }) {
         </svg>
       </Link>
       <div
-        className={`title title${(frontmatter.order % 3) + 1}`}
+        className={`title title${((frontmatter.order - 1) % 3) + 1}`}
         onClick={backToTop}
       >
         {frontmatter.title}

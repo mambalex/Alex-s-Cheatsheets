@@ -94,6 +94,8 @@
     .wrapper {
       position: fixed;
       top: 190px;
+      max-height: calc(100vh - 290px);
+      overflow-y: scroll;
     }
     ul {
       list-style: none;
@@ -149,9 +151,12 @@
 }
 
 .back-arrow {
-  margin-top: -30px;
-  margin-bottom: 20px;
+  // margin-top: -30px;
+  // margin-bottom: 20px;
   display: block;
+  position: fixed;
+  top: 40px;
+  z-index: 2;
 }
 
 .to-top {

@@ -1,7 +1,7 @@
 ---
 title: Linux
 slug: "/linux"
-order: 2
+order: 3
 description: Linux cheatsheet
 ---
 

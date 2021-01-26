@@ -1,7 +1,7 @@
 ---
 title: Istio
 slug: "/istio"
-order: 4
+order: 5
 description: Istio cheat sheet
 ---
 
