@@ -12,7 +12,7 @@ A collection of cheatsheets
 
 ## Live Demo
 
-👉 &nbsp;&nbsp;<b><a href='https://cheatsheets.alexzhang.co'>cheatsheets.alexzhang.co</a></b>
+👉 &nbsp;&nbsp;<b><a  target='_blank' href='https://cheatsheets.alexzhang.co'>cheatsheets.alexzhang.co</a></b>
 
 <br>
 
