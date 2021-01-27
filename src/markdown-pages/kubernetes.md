@@ -455,7 +455,7 @@ See: [ServiceAccount tips](https://medium.com/better-programming/k8s-tips-using-
 ```bash
 Kubernetes does not manage user accounts natively
 # kubectl create user user1            ❌
-# kubectl create serviceaccount mysv   ✅
+# kubectl create serviceaccount mysa   ✅
 
 Available auth mechanisms:
   1. Static password file
@@ -467,7 +467,7 @@ Available auth mechanisms:
 Certificate workflow:
   1. Generate an user private key
   2. Generate a certificate signing request
-  3. Create a certificate signing request objecti
+  3. Create a certificate signing request object
   4. Approve the singinig request using Certificate API
 # Note: Controller-manager handles all the certificate related operations
 ```
