@@ -361,6 +361,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: myclaim
 spec:
+  # highlight-range{1}
   storageClassName: aws-storage
   resources:
     requests:
@@ -560,6 +561,7 @@ kind: Ingress
 metadata:
   name: minimal-ingress
   annotations:
+    # highlight-range{1}
     nginx.ingress.kubernetes.io/rewrite-target: / # trim the url path for the backend
 spec:
   rules:
@@ -669,6 +671,7 @@ spec:
   containers:
     - name: nginx
       image: nginx
+  # highlight-range{1}
   nodeSelector:
     size: large # node's label
 ```
