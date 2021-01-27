@@ -81,6 +81,11 @@
       width: 100%;
       margin-top: 50px;
     }
+    @media screen and (max-width: 778px) {
+      padding: 0;
+      margin-top: 100px;
+      width: 100%;
+    }
   }
   .sidebar {
     width: 200px;
