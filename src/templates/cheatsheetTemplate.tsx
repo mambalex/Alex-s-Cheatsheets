@@ -39,7 +39,10 @@ export default function Template({ data, location }) {
   }
 
   const headerToHash = (header: string): string =>
-    header.toLowerCase().replace("&", "").replace(/ /g, "-")
+    header
+      .toLowerCase()
+      .replace(/(&|\/)/g, "")
+      .replace(/ /g, "-")
 
   const backToTop = () => {
     window[`scrollTo`]({ top: 0, behavior: `smooth` })
