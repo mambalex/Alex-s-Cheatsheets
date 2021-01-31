@@ -155,7 +155,7 @@ echo '/home/jason' | sed 's/\/home\/jason/\/my\/new\/dir/'  # /my/new/dir.  esca
 echo '/home/jason' | sed 's#/home/jason#/my/new/dir#'       # uses # as delimiter
 
 # Deleting
-sed `/This line/d` manager.txt   # delete the lines that matches the search pattern
+sed '/This line/d' manager.txt   # delete the lines that matches the search pattern
 sed '/^#/d' config
 sed '/^$/d' config                             # delete blank lines
 
