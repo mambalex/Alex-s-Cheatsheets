@@ -197,6 +197,11 @@ for i in range(0, 10, 2):    # 0 2 4 6 8
 for item in ["a", "b", "c"]:
 for key, val in dict.items():
 for index, person in enumerate(people):
+
+i = 1
+while i < 8:
+  print(i)
+  i += 1
 ```
 
 ## Conditionals
@@ -316,6 +321,27 @@ john.set_balance(500)
 john.greeting()
 ```
 
+## Exception handling
+
+```python
+
+def divide(a,b):
+  try:
+      output = a / b
+  except ZeroDivisionError:
+      print('Cannot divide by zero')
+  except TypeError:
+      print('Sorry, a and b must be number')
+  else:
+      print('Output = {0}'.format(output))
+  finally:
+      print('Leaving the function')  # Always executes
+
+raise KeyError      # raise an exception manually
+```
+
+See: [Built-in exceptions](https://docs.python.org/3/library/exceptions.html#exception-hierarchy)
+
 ## Modules
 
 {col-2/2}
@@ -397,7 +423,36 @@ with open("welcome.txt", "r") as file:
 ## OS
 
 ```python
+import os
 
+os.getcwd()                    # working directory. e.g. /home/alex
+os.chdir('/etc')               # change working directory
+
+os.listdir()                   # Listing. ['.bash_history', '.bashrc', '.ssh', '.profile']
+
+os.mkdir('test_dir')           # Creating.
+os.makedirs('p_dir/c_dir')
+
+os.rmdir('test_dir')           # Deleting. Must be empty dir or raise OSError
+os.removedirs("p_dir/c_dir")   # OSError: [Errno 39] Directory not empty
+import shutil
+shutil.rmtree('p_dir/c_dir')   # Will delete a directory and the files contained in it
+
+os.rename('test', 'test1')     # Renaming
+
+os.path.exists('/etc/resolv.conf')   # True
+os.path.isfile('/etc/resolv.conf')   # Ture
+os.path.isfile('/etc/resolv.conf')   # False
+
+for dirpath, dirnames, filenames in os.walk('/parent_dir'):  # Loop through dir
+  print(f"Files in '{dirpath}' are: ")
+  for file in filenames:
+    print('\t' + file)
+
+os.environ.get('SHELL')         # Get Env variable
+os.stat(file)                   # File stats
+
+os.system('ls -la')             # return the exit status
 ```
 
 ## Regex
