@@ -68,6 +68,7 @@
   .content {
     padding: 0 0 0 50px;
     flex: 1;
+    max-width: calc(100% - 200px);
     > div h2:first-child {
       margin-top: 20px;
     }
