@@ -97,6 +97,23 @@ spec:
             host: message-service-svc.default.svc.cluster.local
 ```
 
+## Mutual TLS
+
+```yaml
+# mTLS is automaticlly enabled by default
+# Permissive mode. Allow normal http calls (Default)
+# Strict mode. Reject all non-TLS connections
+
+apiVersion: "security.istio.io/v1beta1"
+kind: "PeerAuthentication"
+metadata:
+  name: "default"
+  namespace: "istio-system"
+spec:
+  mtls:
+    mode: STRICT
+```
+
 ## Circuit Breaking
 
 ```yaml
