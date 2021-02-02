@@ -59,6 +59,10 @@ b=`echo $name | sed s/ohn/ay/ `  # Jay
 STR="HELLO WORLD!"
 echo ${STR,,}  #=> "hello world!" (all lowercase)
 echo ${STR^^}  #=> "HELLO WORLD!" (all uppercase)
+
+${FOO:-val}         # $FOO, or val if unset (or null)
+${FOO:=val}         # Set $FOO to val if unset (or null)
+${FOO:?message}     # Show error message and exit if $FOO is unset (or null)
 ```
 
 ## Arrays
