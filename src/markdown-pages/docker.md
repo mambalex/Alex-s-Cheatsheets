@@ -5,7 +5,7 @@ order: 4
 description: Docker cheat sheet
 ---
 
-## Container
+## Containers
 
 ```bash
 # docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
@@ -36,7 +36,7 @@ docker container rm -f $(docker ps -aq)   # Delete all stopped containers
 docker system prune                       #Remove unused containers,networks, images
 ```
 
-## Image
+## Images
 
 ```bash
 docker build -t mambalex/newImg:1.0.0 .
@@ -45,7 +45,7 @@ docker push mambalex/newImg:1.0.0
 docker pull myImage:1.0
 ```
 
-## Dockerfile
+## Dockerfiles
 
 ```dockerfile
 FROM ubuntu:2.1.1
@@ -62,20 +62,44 @@ RUN deluser --remove-home node \
 
 USER node
 
-EXPOSE 5900
+# Optional, it's a way of documenting.
+# Will work regardless of whether or not you expose it
+EXPOSE 8080
 
-ENTRYPOINT["sleep"] # ENTRYPOINT ["executable", "arg1", "a2"]
+ENTRYPOINT["node", "server.js"]
 CMD ["5"]           # CMD appends to ENTRYPOINT
-# CMD["node", "server.js"] # need to separate the cmd
 
-### Multi stage
+```
+
+<br>
+
+```dockerfile
+# Go
 FROM golang:1.13-alpine3.11 as builder
+
 WORKDIR /build
-RUN CGO_ENABLED=0 GOOS=linux go build -a -o golang-memtest .
 
-FROM alpine:3.11.3
-COPY --from=builder /build/golang-memtest .
-ENTRYPOINT [ "./golang-memtest" ]
-CMD [ "3", "300" ]
+COPY go.mod  go.sum ./
+RUN go mod download
 
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -o main
+
+# Multistage
+FROM scratch
+COPY --from=builder /build/main  /
+ENTRYPOINT [ "/main" ]
+```
+
+<br>
+
+```dockerfile
+# Java
+FROM openjdk:8-jre-alpine
+
+WORKDIR /usr/app
+
+COPY app.jar /usr/app
+
+ENTRYPOINT ["java", "-jar", "/usr/app/app.jar"]
 ```
